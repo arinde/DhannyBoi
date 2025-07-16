@@ -4,6 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import HeroSection from './components/Hero'
 import AboutSection from './components/About'
+import MusicSection from './components/MusicSection'
+import ContactSection from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   
@@ -11,6 +14,9 @@ function App() {
     <>
       <HeroSection />
       <AboutSection />
+      <MusicSection />
+      <ContactSection />
+      <Footer />
     </>
   )
 }
