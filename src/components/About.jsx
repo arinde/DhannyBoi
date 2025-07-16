@@ -1,30 +1,35 @@
+// src/components/About.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
-const AboutSection = () => {
+const About = () => {
   return (
-    <section className="bg-white py-20 px-6 md:px-12 text-center md:text-left">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <section
+      id="about"
+      className="py-20 px-6 md:px-16 bg-gradient-to-b from-black via-zinc-900 to-black"
+    >
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <motion.img
-          src="/Image2.jfif"
+          src="/images/dhanny-profile.jpg"
           alt="Dhanny Boi"
-          className="w-full h-auto rounded-2xl shadow-lg object-cover"
-          initial={{ opacity: 0, x: -50 }}
+          className="w-full rounded-3xl shadow-2xl object-cover max-h-[500px] border-4 border-yellow-500"
+          initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         />
-
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">About Dhanny Boi</h2>
-          <p className="text-gray-700 text-lg mb-4">
-            Dhanny Boi is a rising Afrobeats artist known for his electrifying sound and vibrant stage presence. With a passion rooted in the streets of Lagos and a voice that resonates with the heart of Africa, Dhanny Boi is on a mission to take Afrobeat to the world.
+          <h2 className="text-4xl font-extrabold text-yellow-400 mb-6">About Dhanny Boi</h2>
+          <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+            Born in the heart of Lagos, Dhanny Boi is more than just music — he’s a movement.
+            Fusing street rhythms with smooth melodies, his sound bridges heritage and hustle.
           </p>
-          <p className="text-gray-600">
-            From underground freestyle sessions to topping Audiomack playlists, his journey reflects pure talent, grit, and undeniable rhythm. Whether he's singing about love, hustle, or vibes — Dhanny keeps it real and makes you move.
+          <p className="text-gray-500 font-light">
+            From stage performances to viral freestyles, Dhanny Boi brings the fire, the flair,
+            and the future of Afrobeat to every track.
           </p>
         </motion.div>
       </div>
@@ -32,4 +37,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default About;
