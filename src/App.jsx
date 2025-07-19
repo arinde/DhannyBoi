@@ -4,6 +4,11 @@ import { ArrowRight, Play, Facebook, Instagram, Twitter, Youtube, Send } from 'l
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home'); // State to manage active section for navigation
+  const [isOpen, setIsOpen] = useState(false) 
+
+  const handleClick = () =>{
+    setIsOpen(!isOpen)
+  }
 
   // Dummy data for demonstration
   const artistName = "Dhanny Boy";
@@ -11,17 +16,17 @@ const App = () => {
   const musicReleases = [
     {
       id: 1,
-      title: "Echoes of Tomorrow",
-      genre: "Electronic",
-      releaseDate: "2024-03-15",
+      title: "Duro",
+      genre: "Afro beat",
+      releaseDate: "2025-07-08",
       albumArt: "https://placehold.co/400x400/000000/FFFFFF?text=Album+Art+1",
-      spotifyEmbed: "https://open.spotify.com/embed/track/6rqhFgbbKwnb9MLmUQyG5z?utm_source=generator", // Example embed
+      spotifyEmbed: "https://open.spotify.com/track/5J7z02ikiyGoZ1SG72s5fY?si=BwST8Tn4RtuGeNsQUH5WnA&context=spotify%3Aalbum%3A30BotblTSupCLp5hqVLHZd", // Example embed
     },
     {
       id: 2,
-      title: "Midnight Serenade",
+      title: "Bad Boy Killer",
       genre: "R&B",
-      releaseDate: "2023-11-01",
+      releaseDate: "2022-09-27",
       albumArt: "https://placehold.co/400x400/000000/FFFFFF?text=Album+Art+2",
       spotifyEmbed: "https://open.spotify.com/embed/track/1P1xK2F1g0Y4Z3f2v7x9x9?utm_source=generator", // Example embed
     },
@@ -68,14 +73,10 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 font-inter antialiased">
-      {/*
-        For Tailwind CSS v4, you typically need a build process (e.g., using Vite, Next.js, or a custom PostCSS setup)
-        to compile your CSS. A direct CDN link like in older versions is not the standard integration method for v4.
-        Ensure your local development environment has Tailwind CSS v4 properly configured and built.
-      */}
-
+    
       {/* Navigation Bar */}
-      <nav className="fixed w-full z-50 bg-gray-950 bg-opacity-90 shadow-lg py-4 px-6 md:px-12 flex justify-between items-center backdrop-blur-sm">
+      <nav className="fixed w-full h-24 z-50 bg-gray-950 bg-opacity-90 shadow-lg py-4 px-6 md:px-12 flex md:flex-row flex-col justify-between items-center backdrop-blur-sm">
+         <div className='flex justify-between items-center space-x-64'>
         <a href="#home" className="text-2xl font-bold text-purple-400 hover:text-purple-300 transition-colors duration-300">
           {artistName}
         </a>
@@ -86,16 +87,27 @@ const App = () => {
           <a href="#contact" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-medium">Contact</a>
         </div>
         {/* Mobile menu button (optional, for full responsiveness) */}
-        <button className="md:hidden text-gray-300 hover:text-purple-400 focus:outline-none">
+        <button onClick={handleClick} className="md:hidden text-gray-300 hover:text-purple-400 focus:outline-none">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
+      </div>
+      {isOpen && 
+        <div className="md:hidden flex flex-col space-y-4 bg-purple-800 px-16 py-3 shadow-md mt-4 rounded-3xl items-center">
+          <a href="#home" onClick={handleClick} className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-medium">Home</a>
+          <a href="#music" onClick={handleClick} className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-medium">Music</a>
+          <a href="#about" onClick={handleClick} className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-medium">About</a>
+          <a href="#contact" onClick={handleClick} className="text-gray-300 hover:text-purple-400 transition-colors duration-300 font-medium">Contact</a>
+        </div>
+        }
       </nav>
+
+        
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center filter brightness-75" style={{ backgroundImage: "url('https://placehold.co/1920x1080/1a202c/FFFFFF?text=Artist+Hero+Image')" }}></div>
+        <div className="absolute inset-0 bg-cover bg-center filter brightness-75 backdrop-blur-3xl" style={{ backgroundImage: "url('/daniel.jfif')" }}></div>
         <motion.div
           className="relative z-10 p-8 bg-black bg-opacity-50 rounded-xl shadow-2xl max-w-3xl mx-auto"
           initial="hidden"
@@ -223,7 +235,7 @@ const App = () => {
             </button>
           </form>
           <div className="mt-12 text-gray-400">
-            <p className="mb-2">Email: <a href="mailto:info@melodyflow.com" className="text-purple-400 hover:underline">info@melodyflow.com</a></p>
+            <p className="mb-2">Email: <a href="mailto:danielarinde4@gmail.com" className="text-purple-400 hover:underline">danielarinde4@gmail.com</a></p>
             <p>Follow on social media:</p>
             <div className="flex justify-center space-x-6 mt-4">
               <a href="#" className="text-gray-300 hover:text-purple-400 transition-colors duration-300">
